@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts 'deleting all stories'
+Story.destroy_all
+
+puts 'creating new stories'
+10.times do
+  Story.create(
+    title: Faker::Hacker.adjective,
+    content: Faker::Hacker.say_something_smart
+  )
+end
+puts "created #{Story.count} stories"
